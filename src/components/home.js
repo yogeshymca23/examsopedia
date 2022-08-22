@@ -4,6 +4,7 @@ import Axios from 'axios'
 import "./home.css"
 import "./searchbar.css"
 import "./landingpage.css"
+import "./home-bootstrap.css"
 import MyBackgroundImage from "../images/bg.jpg"
 
 
@@ -50,7 +51,7 @@ const Home = () => {
                     {/* <!-- header section starts  --> */}
 
                     <header class="header">
-                        <a href="/" class="logo"> <i class="fas fa-book-reader"></i> ExamOpedia </a>
+                        <a href="/" class="logo"> <i class="fas fa-book-reader"></i> ExamsOpedia </a>
 
                         <nav class="navbar">
                             <div id="nav-close" class="fas fa-times"></div>
@@ -67,13 +68,30 @@ const Home = () => {
 
                     {/* <!-- header section ends -->
 
-                    <!-- search form  --> */}
+                    
+
+                    {/* <!-- bootstrap --!> */}
+                    <section class="masthead">
+                        <div class="container px-4 px-lg-5 h-100">
+                            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                                <div class="col-lg-8 align-self-end">
+                                    <h1 class="text-black font-weight-bold">Your Favorite Place for Previous Year Papers</h1>
+                                    {/* <hr class="divider" /> */}
+                                    <br/>
+                                </div>
+                                <div class="col-lg-8 align-self-baseline">
+                                    <p class="text-white-75 mb-5">Done with Exam Preparation ? <br/>Download Previous Year Papers & start  Practice now !</p>
+                                    <a class="btn  btn-xl" href="#about">Search</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
 
 
                     {/* <!-- home section starts  --> */}
 
-                    <section class="home" id="home">
+                    {/* <section class="home" id="home">
 
                         <div class="swiper home-slider">
 
@@ -93,7 +111,7 @@ const Home = () => {
 
                             </div>
                         </div>
-                    </section>
+                    </section> */}
 
                     {/* <!-- home section ends --> */}
 
@@ -101,9 +119,9 @@ const Home = () => {
 
                     {/* <!-- about section starts  --> */}
 
-                    <section class="about" id="about">
+                    <section class="about " id="about">
 
-                        <div class="search-box">
+                        <div class="search-box ">
                             <input class="search-input" type="text" placeholder="Search Previous Papers.." onChange={(e) => setKeyword(e.target.value)} />
                             <button class="search-btn"><i class="fas fa-search" onClick={searchSubmitHandler} ></i></button>
                         </div>
@@ -220,7 +238,7 @@ const Home = () => {
                     {/* <!-- header section starts  --> */}
 
                     <header class="header">
-                        <a href="/" class="logo"> <i class="fas fa-book-reader"></i> ExamOpedia </a>
+                        <a href="/" class="logo"> <i class="fas fa-book-reader"></i> ExamsOpedia </a>
 
                         <nav class="navbar">
                             <div id="nav-close" class="fas fa-times"></div>
@@ -251,27 +269,23 @@ const Home = () => {
 
                     {/* <!-- home section starts  --> */}
 
-                    <section class="home" id="home">
-
-                        <div class="swiper home-slider">
-
-                            <div class="swiper-wrapper">
-
-                                <div class="swiper-slide">
-                                    <div class="box" style={{ background: `url(${MyBackgroundImage})` }}>
-                                        <div class="content">
-                                            <span>
-                                                <h1 style={{ color: "black" }}>Search Previous Year Papers</h1>
-                                            </span>
-                                            <a href="#about" class="btn">SEARCH</a>
-                                        </div>
-                                    </div>
+                    <section class="masthead">
+                        <div class="container px-4 px-lg-5 h-100">
+                            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                                <div class="col-lg-8 align-self-end">
+                                    <h1 class="text-black font-weight-bold">Your Favorite Place for Previous Year Papers</h1>
+                                    {/* <hr class="divider" /> */}
+                                    <br/>
                                 </div>
-
-
+                                <div class="col-lg-8 align-self-baseline">
+                                    <p class="text-white-75 mb-5">Done with Exam Preparation ? <br/>Download Previous Year Papers & start  Practice now !</p>
+                                    <a class="btn  btn-xl" href="#about">Search</a>
+                                </div>
                             </div>
                         </div>
                     </section>
+
+
 
                     {/* <!-- home section ends --> */}
 
@@ -323,7 +337,7 @@ const Home = () => {
                                 <h2>No Records Found <br /> ( try with different Words )</h2>
                                 {/* <button class="btn-card" data-toggle="modal"
                                     data-target="#exampleModal">View Paper</button> */}
-                                <button class="floating-btn" >
+                                <button  >
                                     <a href='/post' class="floating-btn" >Upload New Paper</a>
                                 </button>
 

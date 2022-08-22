@@ -28,6 +28,7 @@ function Post() {
 
     const uploadFile = (url, file) => {
         let formData = new FormData();
+    
         formData.append("title", title);
         formData.append("auther", auther);
         formData.append("batch", batch);
@@ -51,8 +52,9 @@ function Post() {
             console.log(error);
             console.log("not pressed button in frontend ")
         });
+        alert("Paper Uploaded Succesfully");
 
-        // window.location.reload(false);
+        window.location.reload(false);
     };
     // const post1 = () => {
     //     console.log("post function called");
