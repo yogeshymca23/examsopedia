@@ -21,6 +21,7 @@ function Post() {
 
     const Post1 = () => {
         let url = "https://examsopedia.herokuapp.com/post";
+        
 
         uploadFile(url, file);
     };
@@ -36,18 +37,22 @@ function Post() {
         formData.append("teacher", teacher);
         formData.append("college", college);
         formData.append("testImage", file);
+        
 
         Axios.post(url, formData, {
+            
             headers: {
                 "Content-Type": "multipart/form-data",
             },
         }).then((response) => {
             console.log(response);
+            console.log("frontend mei post button dbgya")
         }).catch((error) => {
             console.log(error);
+            console.log("not pressed button in frontend ")
         });
 
-        window.location.reload(false);
+        // window.location.reload(false);
     };
     // const post1 = () => {
     //     console.log("post function called");
