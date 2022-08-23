@@ -15,47 +15,77 @@ function Post() {
     const [teacher, setteacher] = useState('')
     const [college, setcollege] = useState('')
     const [file, setfile] = useState([])
+    const [link , setlink] = useState('')
     /// image k aaega yaha ek 
 
-
-
-    const Post1 = () => {
-        let url = "https://examsopedia.herokuapp.com/post";
-        
-
-        uploadFile(url, file);
-    };
-
-    const uploadFile = (url, file) => {
-        let formData = new FormData();
     
-        formData.append("title", title);
-        formData.append("auther", auther);
-        formData.append("batch", batch);
-        formData.append("semester", semester);
-        formData.append("year", year);
-        formData.append("branch", branch);
-        formData.append("teacher", teacher);
-        formData.append("college", college);
-        formData.append("testImage", file);
+
+
+
+    const Post1 = async () => {
+        const data = new FormData();
+        data.append("file", file);
+        data.append("upload_preset",'tcy4cwvj');
+      
+        const res = await fetch(
+          `https://api.cloudinary.com/v1_1/dokr750ql/image/upload`,
+          {
+            method: "POST",
+            body: data,
+          }
+        );
+        const img = await res.json();
+        // console.log(img);
+        console.log(img.secure_url);
+        setlink(img.secure_url);
+
+        Axios.post('https://examsopedia.herokuapp.com/post', { title, auther, batch, semester, year, branch, teacher, link, college })
+             .then(res => {
+                 return res.json();
+                 
+            }
+            ,console.log("hogyi post"))
+    
+    
+            // window.location.reload(false);
         
 
-        Axios.post(url, formData, {
-            
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        }).then((response) => {
-            console.log(response);
-            console.log("frontend mei post button dbgya")
-        }).catch((error) => {
-            console.log(error);
-            console.log("not pressed button in frontend ")
-        });
-        alert("Paper Uploaded Succesfully");
-
-        window.location.reload(false);
+        // uploadFile(url, file);
     };
+
+    // const uploadFile = (url, file) => {
+    //     let formData = new FormData();
+    
+    //     formData.append("title", title);
+    //     formData.append("auther", auther);
+    //     formData.append("batch", batch);
+    //     formData.append("semester", semester);
+    //     formData.append("year", year);
+    //     formData.append("branch", branch);
+    //     formData.append("teacher", teacher);
+    //     formData.append("college", college);
+    //     formData.append("testImage", file);
+        
+
+    //     Axios.post(url, formData, {
+            
+    //         headers: {
+    //             "Content-Type": "multipart/form-data",
+    //         },
+    //     }).then((response) => {
+    //         console.log(response);
+    //         console.log("frontend mei post button dbgya")
+    //     }).catch((error) => {
+    //         console.log(error);
+    //         console.log("not pressed button in frontend ")
+    //     });
+    //     alert("Paper Uploaded Succesfully");
+
+    //     window.location.reload(false);
+    // };
+
+
+
     // const post1 = () => {
     //     console.log("post function called");
     //     // setdebug("hello");
