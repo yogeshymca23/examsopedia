@@ -49,8 +49,8 @@ function Post() {
                 });
     
     
-            window.location.reload(false);
-            alert("Paper Uploaded Succesfully");
+            // window.location.reload(false);
+            // alert("Paper Uploaded Succesfully");
         
 
         // uploadFile(url, file);
