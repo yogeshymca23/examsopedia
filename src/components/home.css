@@ -3,7 +3,12 @@
 * {
 	box-sizing: border-box;
 }
-
+html, body {
+    max-width:100%;
+}
+#root{
+	max-width: 100%;
+}
 
 body {
 	/* background-image: linear-gradient(45deg, #7175da, #9790F2);
@@ -17,6 +22,8 @@ body {
 }
 
 .courses-container {
+	
+    max-width:100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -28,10 +35,9 @@ body {
 	border-radius: 10px;
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	display: flex;
-	max-width: 100%;
 	margin: 20px;
 	overflow: hidden;
-	width: 700px;
+	width: 70%;
 }
 
 .course h6 {
@@ -66,10 +72,12 @@ body {
 } */
 
 .course-preview {
+	
+    max-width:100%;
 	background-color: #2C3333;
 	color: #fff;
 	padding: 30px;
-	width: 280px;
+	width: 25%;
 }
 
 .course-preview a {
@@ -84,7 +92,7 @@ body {
 .course-info {
 	padding: 30px;
 	position: relative;
-	width: 100%;
+	width: 75%;
 }
 
 .progress-container {

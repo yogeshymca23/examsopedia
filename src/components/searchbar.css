@@ -1,6 +1,8 @@
 body {
   text-align: center;
   min-height: 93vh;
+  
+  max-width:100%;
 
 }
 
@@ -11,13 +13,13 @@ h1 {
 
 /* You just need to get this field - start */
 .about{
-  width: 100%;
+  max-width: 100%;
   padding-inline: 0;
   margin: auto;
 }
 
 .search-box {
-  width: 56%;
+  width: 50%;
   margin: auto;
 padding: 0;
 }

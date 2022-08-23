@@ -18,6 +18,7 @@ html {
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  max-width: 100% !important;
 }
 
 html::-webkit-scrollbar {
@@ -61,7 +62,6 @@ section {
 }
 
 .header {
-  
   margin: 1rem 0rem;
   position: fixed;
   top: 0;
@@ -139,7 +139,7 @@ section {
 .home .box {
   display: flex;
   flex-wrap: nowrap;
-  width: 250vh;
+  max-width: 100%;
   
  
   min-height: 100vh;
