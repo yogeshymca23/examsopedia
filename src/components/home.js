@@ -20,17 +20,21 @@ const Home = () => {
             Axios.get(`https://examsopedia.herokuapp.com/search/${keyword}`).then(res => {
                 setEvent(res.data)
                 console.log(res.data)
+                console.log("get hogyaaaa");
 
 
 
             }).catch(function (error) {
                 console.log(error);
+                
+                console.log("ye get nhi hua");
             });
             // navigate(`/search/${keyword}`);
         } else {
             Axios.get('https://examsopedia.herokuapp.com/get_post').then(res => {
                 setEvent(res.data)
                 console.log(res.data)
+                console.log("ye get nhi hua");
 
 
 
