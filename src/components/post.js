@@ -43,11 +43,11 @@ function Post() {
              .then(res => {
                  return res.json();
                  
-            }
-            ,console.log("hogyi post"))
+            })
     
     
-            // window.location.reload(false);
+            window.location.reload(false);
+            alert("Paper Uploaded Succesfully");
         
 
         // uploadFile(url, file);
