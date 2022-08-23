@@ -50,19 +50,12 @@ const Home = () => {
                 <div>
                     {/* <!-- header section starts  --> */}
 
-                    <header class="header">
+                    <header class="header flex-wrap">
                         <a href="/" class="logo"> <i class="fas fa-book-reader"></i> ExamsOpedia </a>
+                        <button >
+                                <a href='/post' class="floating-btn" style={{color:"white"}} >Upload New Paper</a>
+                        </button>
 
-                        <nav class="navbar">
-                            <div id="nav-close" class="fas fa-times"></div>
-
-
-                            {/* <a href="#about">SEARCH</a>
-
-                            <a href="#shop">CONTACT US</a> */}
-
-
-                        </nav>
 
                     </header>
 
@@ -77,10 +70,10 @@ const Home = () => {
                                 <div class="col-lg-8 align-self-end">
                                     <h1 class="text-black font-weight-bold">Your Favorite Place for Previous Year Papers</h1>
                                     {/* <hr class="divider" /> */}
-                                    <br/>
+                                    <br />
                                 </div>
                                 <div class="col-lg-8 align-self-baseline">
-                                    <p class="text-white-75 mb-5">Done with Exam Preparation ? <br/>Download Previous Year Papers & start  Practice now !</p>
+                                    <p class="text-white-75 mb-5">Done with Exam Preparation ? <br />Download Previous Year Papers & start  Practice now !</p>
                                     <a class="btn  btn-xl" href="#about">Search</a>
                                 </div>
                             </div>
@@ -171,54 +164,97 @@ const Home = () => {
                                                 <h2>{val.branch}</h2>
                                                 <a href="#">Post by :- {val.auther} ({val.batch})</a>
                                             </div>
+
                                             <div class="course-info">
-                                                <div class="progress-container">
+                                                <div class="row ">
+                                                    <div class="col-6 ">
+                                                        <h6>{val.year} Year</h6>
+                                                    </div>
+                                                    <div class="col-6 col-md-6 col-sm-12 col-xs-12 progress-container">
+                                                        <div class="progress"></div>
+                                                        <span class="progress-text">
+                                                            {val.rating}/5 Ratings
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                {/* <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --> */}
+                                                <div class="row offset-5">
+                                                    <div class="col-12 col-md-12 py-2 ">
+                                                        <h2 id="title">{val.title} </h2>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 align-items-start py-2">
+                                                        <h3 id="title">By :- {val.teacher} </h3>
+                                                    </div>
+
+                                                </div>
+
+                                                {/* <!-- Columns are always 50% wide, on mobile and desktop --> */}
+                                                <div class="row">
+                                                    <div class=" col py-3">
+                                                        <button class="btn-card" data-toggle="modal"
+                                                            data-target="#exampleModal">View Paper</button>
+                                                        {/* ab popup aaega  */}
+                                                        <div class="modal fade"
+                                                            id="exampleModal"
+                                                            tabindex="-1"
+                                                            role="dialog"
+                                                            aria-labelledby="exampleModalLabel"
+                                                            aria-hidden="true">
+
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+
+                                                                    {/* <!-- Add image inside the body of modal --> */}
+                                                                    <div class="modal-body">
+                                                                        <img id="image" src={imgaddress} width="100%"
+                                                                            alt="No Data Found" />
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn-card"
+                                                                            data-dismiss="modal">
+                                                                            Close
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+
+                                            {/* <div class="row course-info">
+                                                <div class="col progress-container">
                                                     <div class="progress"></div>
                                                     <span class="progress-text">
                                                         {val.rating}/5 Ratings
                                                     </span>
+                                                    <h6 class="col-4">{val.year} Year</h6>
                                                 </div>
-                                                <h6>{val.year} Year</h6>
-                                                <h2 id="title">{val.title} ({val.semester} Semester)</h2>
 
-                                                <h2>by {val.teacher}</h2>
-                                                <button class="btn-card" data-toggle="modal"
+                                                <h2 class="col" id="title">{val.title} </h2>
+
+                                                <h2 class="col"> (by {val.teacher})</h2>
+                                                <button class="row btn-card" data-toggle="modal"
                                                     data-target="#exampleModal">View Paper</button>
 
-                                                {/* ab button popup aaega     */}
-                                                <div class="modal fade"
-                                                    id="exampleModal"
-                                                    tabindex="-1"
-                                                    role="dialog"
-                                                    aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true">
-
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-
-                                                            {/* <!-- Add image inside the body of modal --> */}
-                                                            <div class="modal-body">
-                                                                <img id="image" src={imgaddress} width="100%"
-                                                                    alt="No Data Found" />
-                                                            </div>
-
-                                                            <div class="modal-footer">
-                                                                <button type="button"
-                                                                    class="btn-card"
-                                                                    data-dismiss="modal">
-                                                                    Close
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                
+                                            </div> */}
                                         </div>
                                     </div>
 
-                                    <button class="floating-btn">
+                                    {/* <button class="floating-btn">
                                         <a href='/post' class="floating-btn" >Upload New Paper</a>
-                                    </button>
+                                    </button> */}
 
 
 
@@ -237,19 +273,12 @@ const Home = () => {
 
                     {/* <!-- header section starts  --> */}
 
-                    <header class="header">
+                    <header class="header flex-wrap">
                         <a href="/" class="logo"> <i class="fas fa-book-reader"></i> ExamsOpedia </a>
+                        <button >
+                                <a href='/post' class="floating-btn" style={{color:"white"}} >Upload New Paper</a>
+                        </button>
 
-                        <nav class="navbar">
-                            <div id="nav-close" class="fas fa-times"></div>
-
-
-                            {/* <a href="#about">SEARCH</a>
-
-                            <a href="#shop">CONTACT US</a> */}
-
-
-                        </nav>
 
                     </header>
 
@@ -275,10 +304,10 @@ const Home = () => {
                                 <div class="col-lg-8 align-self-end">
                                     <h1 class="text-black font-weight-bold">Your Favorite Place for Previous Year Papers</h1>
                                     {/* <hr class="divider" /> */}
-                                    <br/>
+                                    <br />
                                 </div>
                                 <div class="col-lg-8 align-self-baseline">
-                                    <p class="text-white-75 mb-5">Done with Exam Preparation ? <br/>Download Previous Year Papers & start  Practice now !</p>
+                                    <p class="text-white-75 mb-5">Done with Exam Preparation ? <br />Download Previous Year Papers & start  Practice now !</p>
                                     <a class="btn  btn-xl" href="#about">Search</a>
                                 </div>
                             </div>
@@ -322,28 +351,43 @@ const Home = () => {
                     <div class="courses-container">
                         <div class="course">
                             <div class="course-preview">
-
-                                <h2>-----</h2>
-                                <a href="#">Post by :- None</a>
+                                <h6>---</h6>
+                                <h2>---</h2>
+                                <a href="#">Post by :-Nonw</a>
                             </div>
+
                             <div class="course-info">
-                                <div class="progress-container">
-                                    <div class="progress"></div>
-                                    <span class="progress-text">
-                                        -/5 Ratings
-                                    </span>
+                                <div class="row ">
+                                    <div class="col-6 ">
+                                        <h6>XXXX Year</h6>
+                                    </div>
+                                    <div class="col-6 col-md-6 col-sm-12 col-xs-12 progress-container">
+                                        <div class="progress"></div>
+                                        <span class="progress-text">
+                                            -/5 Ratings
+                                        </span>
+                                    </div>
                                 </div>
-                                <h6>20XX Year</h6>
-                                <h2>No Records Found <br /> ( try with different Words )</h2>
-                                {/* <button class="btn-card" data-toggle="modal"
-                                    data-target="#exampleModal">View Paper</button> */}
-                                <button  >
-                                    <a href='/post' class="floating-btn" >Upload New Paper</a>
-                                </button>
 
+                                {/* <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --> */}
+                                <div class="row offset-5">
+                                    <div class="col-12 col-md-12 py-2 ">
+                                        <h2 id="title">No Results till now </h2>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 align-items-start py-2">
+                                        <h3 id="title">Search For more </h3>
+                                    </div>
+
+                                </div>
+
+                                {/* <!-- Columns are always 50% wide, on mobile and desktop --> */}
 
 
                             </div>
+
                         </div>
                     </div>
                 </div >

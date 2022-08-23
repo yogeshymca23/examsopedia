@@ -3,10 +3,13 @@
 * {
 	box-sizing: border-box;
 }
-html, body {
-    max-width:100%;
+
+html,
+body {
+	max-width: 100%;
 }
-#root{
+
+#root {
 	max-width: 100%;
 }
 
@@ -22,12 +25,12 @@ body {
 }
 
 .courses-container {
-	
-    max-width:100%;
+
+	max-width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
+
 }
 
 .course {
@@ -38,6 +41,7 @@ body {
 	margin: 20px;
 	overflow: hidden;
 	width: 70%;
+	height: 100%;
 }
 
 .course h6 {
@@ -45,7 +49,7 @@ body {
 	margin: 0;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	
+
 }
 
 .course-info h6 {
@@ -54,30 +58,33 @@ body {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	margin-bottom: 5px;
-	
+
 }
 
 .course h2 {
 	letter-spacing: 1px;
 	margin: 10px 0;
 }
+
 .course-info h2 {
 	letter-spacing: 1px;
 	margin: 10px 0;
 	float: left;
 }
 
-/* #title{
+#title {
 	float: left;
-} */
+}
 
 .course-preview {
-	
-    max-width:100%;
+
 	background-color: #2C3333;
+
+	padding-top: 65px;
+	padding-bottom: 70px;
 	color: #fff;
-	padding: 30px;
 	width: 25%;
+	height: 100%;
 }
 
 .course-preview a {
@@ -93,14 +100,15 @@ body {
 	padding: 30px;
 	position: relative;
 	width: 75%;
+	height: 100%;
 }
 
 .progress-container {
-	position: absolute;
+	/* position: absolute;
 	top: 30px;
 	right: 30px;
 	text-align: right;
-	width: 150px;
+	width: 150px; */
 }
 
 .progress {
@@ -135,9 +143,9 @@ body {
 	color: #fff;
 	font-size: 16px;
 	padding: 12px 25px;
-	position: absolute;
+	/* position: absolute;
 	bottom: 30px;
-	right: 30px;
+	right: 30px; */
 	letter-spacing: 1px;
 }
 
@@ -154,10 +162,10 @@ body {
 	transform: translateX(-10px);
 }
 
-.social-panel {	
+.social-panel {
 	background-color: #fff;
 	border-radius: 16px;
-	box-shadow: 0 16px 31px -17px rgba(0,31,97,0.6);
+	box-shadow: 0 16px 31px -17px rgba(0, 31, 97, 0.6);
 	border: 5px solid #001F61;
 	display: flex;
 	flex-direction: column;
@@ -165,7 +173,7 @@ body {
 	align-items: center;
 	font-family: 'Muli';
 	position: relative;
-	height: 169px;	
+	height: 169px;
 	width: 370px;
 	max-width: calc(100% - 10px);
 }
@@ -211,9 +219,9 @@ body {
 
 .social-panel h4 {
 	margin: 20px 0;
-	color: #97A5CE;	
-	font-family: 'Muli';	
-	font-size: 14px;	
+	color: #97A5CE;
+	font-family: 'Muli';
+	font-size: 14px;
 	line-height: 18px;
 	text-transform: uppercase;
 }
@@ -256,16 +264,15 @@ body {
 	cursor: pointer;
 	font-size: 16px;
 	line-height: 20px;
-	padding: 12px 20px;
-	position: fixed;
+	padding: 10px 20px;
+	/* position: fixed;
 	top: 15px;
-	right: 65px;
-	z-index: 1001;
+	right: 65px; */
 }
 
 .floating-btn:hover {
 	background-color: #ffffff;
-	color: #2C3333;
+	color: #2C3333 !important;
 }
 
 .floating-btn:focus {
@@ -288,20 +295,56 @@ body {
 
 .floating-text a {
 	color: #2C3333;
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
-.dukhi-aatma{
+.dukhi-aatma {
 	text-decoration-color: #2C3333;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 580px) {
 
 	.social-panel-container.visible {
 		transform: translateX(0px);
 	}
-	
+
+
 	.floating-btn {
-		right: 10px;
+		position: fixed;
+		top: 4.5%;
+		left: 25%;
+		right:25%;
+	}
+
+	.btn-card {
+		padding: 0px 25px;
+		height: 100%;
+		font-size: small;
+
+		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+
+	}
+
+	.course-preview {
+		padding-top: 13%;
+		padding-bottom: 13%;
+
+	}
+
+	.course-info {
+		padding-top: 0;
+		padding-bottom: 0;
+		margin: auto;
 	}
 }
+
+/* @media screen and (max-width: 460px) {
+	.course-preview {
+	
+		
+		
+		padding-top: 20px;
+		padding-bottom: 20px;
+		
+	}
+} */

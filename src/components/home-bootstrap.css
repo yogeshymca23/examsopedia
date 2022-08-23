@@ -6,7 +6,7 @@ p{
 	font-family: 'Poppins', sans-serif;
 }
 section.masthead {
-	margin-top: 7rem;
+	margin-top: 6rem;
 	padding-top: 10rem;
 	padding: 0rem 10rem !important;
 	padding-bottom: calc(10rem - 4.5rem);
@@ -16,18 +16,20 @@ section.masthead {
 	background-attachment: scroll;
 	background-size: cover;
   }
+
+  
  section.masthead h1, section.masthead .h1 {
 	color: black;
 	width: 50%;
 	margin: auto;
-	font-size: 3rem !important;
+	font-size: 3rem ;
   }
   section.masthead p{
 	width: 50%;
 	margin: auto;
 
   }
-  @media (min-width: 200px) {
+  @media (min-width: 320px) {
 	section.masthead {
 	  height: 100vh;
 	  min-height: 40rem;
