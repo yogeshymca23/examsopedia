@@ -37,7 +37,7 @@ function Post() {
         const img = await res.json();
         // console.log(img);
         const link = img.secure_url;  // ye link bhi aaega
-        
+
         // console.log(img.secure_url);
         // setlink(img.secure_url);
 
@@ -52,8 +52,8 @@ function Post() {
                 });
     
     
-            // window.location.reload(false);
-            // alert("Paper Uploaded Succesfully");
+            window.location.reload(false);
+            alert("Paper Uploaded Succesfully");
         
 
         // uploadFile(url, file);
