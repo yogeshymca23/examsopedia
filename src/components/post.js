@@ -15,7 +15,7 @@ function Post() {
     const [teacher, setteacher] = useState('')
     const [college, setcollege] = useState('')
     const [file, setfile] = useState([])
-    const [link , setlink] = useState('')
+    // const [link , setlink] = useState('')
     /// image k aaega yaha ek 
 
     
@@ -36,10 +36,14 @@ function Post() {
         );
         const img = await res.json();
         // console.log(img);
-        console.log(img.secure_url);
-        setlink(img.secure_url);
+        const link = img.secure_url;  // ye link bhi aaega
+        
+        // console.log(img.secure_url);
+        // setlink(img.secure_url);
 
-        Axios.post('https://examsopedia.herokuapp.com/post', { title, auther, batch, semester, year, branch, teacher, link, college } , {headers:{"Content-Type" : "application/json"}})
+        
+
+        Axios.post('https://examsopedia.herokuapp.com/post', { title, auther, batch, semester, year, branch, teacher, college, link } , {headers:{"Content-Type" : "application/json"}})
              .then(res => {
                  console.log(res);
                  
@@ -48,8 +52,8 @@ function Post() {
                 });
     
     
-            window.location.reload(false);
-            alert("Paper Uploaded Succesfully");
+            // window.location.reload(false);
+            // alert("Paper Uploaded Succesfully");
         
 
         // uploadFile(url, file);
