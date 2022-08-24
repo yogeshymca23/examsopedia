@@ -39,17 +39,17 @@ function Post() {
         console.log(img.secure_url);
         setlink(img.secure_url);
 
-        Axios.post('https://examsopedia.herokuapp.com/post', { title, auther, batch, semester, year, branch, teacher, link, college })
+        Axios.post('https://examsopedia.herokuapp.com/post', { title, auther, batch, semester, year, branch, teacher, link, college } , {headers:{"Content-Type" : "application/json"}})
              .then(res => {
-                 return res.data;
+                 console.log(res);
                  
             }).catch((error) => {
                 console.log(error);
                 });
     
     
-            // window.location.reload(false);
-            // alert("Paper Uploaded Succesfully");
+            window.location.reload(false);
+            alert("Paper Uploaded Succesfully");
         
 
         // uploadFile(url, file);
