@@ -68,6 +68,7 @@ const Approve = () => {
 const ChildComponent = ({ id, title, auther, batch, semester, year, branch, teacher, college, link }) => {
 
     const Post1 = async () => {
+        console.log(link);
 
         Axios.post('https://examsopedia.herokuapp.com/approve', { title, auther, batch, semester, year, branch, teacher, college, link }, { headers: { "Content-Type": "application/json" } });
             
@@ -127,36 +128,9 @@ const ChildComponent = ({ id, title, auther, batch, semester, year, branch, teac
                         {/* <!-- Columns are always 50% wide, on mobile and desktop --> */}
                         <div class="row">
                             <div class=" col py-3">
-                                <button class="btn-card" data-toggle="modal"
-                                    data-target="#exampleModal">View Paper</button>
-                                {/* ab popup aaega  */}
-                                <div class="modal fade"
-                                    id="exampleModal"
-                                    tabindex="-1"
-                                    role="dialog"
-                                    aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
-
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-
-                                            {/* <!-- Add image inside the body of modal --> */}
-                                            <div class="modal-body">
-                                                <img id="image" src={link} width="100%"
-                                                    alt="No Data Found" />
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button"
-                                                    class="btn-card"
-                                                    data-dismiss="modal">
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <button class="btn-card" >
+                                    <a href={link}>Download Paper</a></button>
+                                
                             </div>
                             <button class="btn-card" onClick={Post1}>Approve</button>
                         </div>

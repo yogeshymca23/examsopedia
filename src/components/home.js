@@ -153,7 +153,7 @@ const Home = () => {
 
 
 
-
+                        // console.log(val.link);
 
 
                         return (
@@ -197,8 +197,7 @@ const Home = () => {
                                             {/* <!-- Columns are always 50% wide, on mobile and desktop --> */}
                                             <div class="row">
                                                 <div class=" col py-3">
-                                                    <button class="btn-card" data-toggle="modal"
-                                                        data-target="#exampleModal">View Paper</button>
+                                                    <button class="btn-card" ><a style={{color : "white"}} href={val.link}>Download Paper</a></button>
                                                     {/* ab popup aaega  */}
                                                     <div class="modal fade"
                                                         id="exampleModal"
