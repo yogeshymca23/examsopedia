@@ -164,19 +164,19 @@ const Home = () => {
                             <div>
 
                                 <div class="courses-container">
-                                    <div class="course">
-                                        <div class="course-preview">
+                                    <div class="course row">
+                                        <div class="col-12 col-md-3 py-4 d-flex flex-column align-items-center justify-content-center course-preview">
                                             <h6>{val.college}</h6>
                                             <h2>{val.branch}</h2>
                                             <a >Post by :- {val.auther} ({val.batch})</a>
                                         </div>
 
-                                        <div class="course-info">
-                                            <div class="row ">
+                                        <div class="col-12 col-md-9 course-info px-5">
+                                            <div class="row pt-3">
                                                 <div class="col-6 ">
                                                     <h6>{val.year} Year</h6>
                                                 </div>
-                                                <div class="col-6 col-md-6 col-sm-12 col-xs-12 progress-container">
+                                                <div class="col-6 col-md-6  progress-container">
                                                     <div class="progress"></div>
                                                     <span class="progress-text">
                                                         {val.rating}/5 Ratings
@@ -192,7 +192,7 @@ const Home = () => {
 
                                             </div>
                                             <div class="row">
-                                                <div class="col-12 align-items-start py-2">
+                                                <div class="col-12 align-items-start">
                                                     <h3 id="title">By :- {val.teacher} </h3>
                                                 </div>
 
@@ -357,14 +357,14 @@ const Home = () => {
 
                 <div class="courses-container">
                     <div class="course">
-                        <div class="course-preview">
+                        {/* <div class="course-preview">
                             <h6>---</h6>
                             <h2>---</h2>
                             <a >Post by :-Nonw</a>
-                        </div>
+                        </div> */}
 
                         <div class="course-info">
-                            <div class="row ">
+                            {/* <div class="row ">
                                 <div class="col-6 ">
                                     <h6>XXXX Year</h6>
                                 </div>
@@ -374,7 +374,7 @@ const Home = () => {
                                         -/5 Ratings
                                     </span>
                                 </div>
-                            </div>
+                            </div> */}
 
                             {/* <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --> */}
                             <div class="row offset-5">
