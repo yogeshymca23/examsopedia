@@ -44,12 +44,7 @@ function Post() {
         
 
         Axios.post('https://examsopedia.herokuapp.com/post', { title, auther, batch, semester, year, branch, teacher, college, link } , {headers:{"Content-Type" : "application/json"}})
-             .then(res => {
-                 console.log(res);
-                 
-            }).catch((error) => {
-                console.log(error);
-                });
+             
     
     
             window.location.reload(false);

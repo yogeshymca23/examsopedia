@@ -19,22 +19,18 @@ const Home = () => {
         if (keyword.trim()) {
             Axios.get(`https://examsopedia.herokuapp.com/search/${keyword}`).then(res => {
                 setEvent(res.data)
-                console.log(res.data)
-                console.log("get hogyaaaa");
 
 
 
             }).catch(function (error) {
                 console.log(error);
                 
-                console.log("ye get nhi hua");
             });
             // navigate(`/search/${keyword}`);
         } else {
             Axios.get('https://examsopedia.herokuapp.com/get_post').then(res => {
                 setEvent(res.data)
                 console.log(res.data)
-                console.log("ye get nhi hua");
 
 
 
@@ -328,7 +324,7 @@ const Home = () => {
 
                 {/* <!-- about section starts  --> */}
 
-                <section class="about" id="about">
+                <section id="about">
 
                     <div class="search-box">
                         <input class="search-input" type="text" placeholder="Search Previous Papers.." onChange={(e) => setKeyword(e.target.value)} />

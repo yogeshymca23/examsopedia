@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Post from "./components/post.js"
 import Home from "./components/home.js"
+import Approve from "./components/approve.js"
 
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route  path="/" element={<Home />} />
         <Route exact path="/post" element={<Post />} />
+        <Route exact path="/adminyogesh" element={<Approve />} />
         
       </Routes>
       {/* <Footer/> */}
