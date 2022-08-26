@@ -1,20 +1,38 @@
 // import { useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState  , useEffect} from 'react';
 import Axios from 'axios'
 import "./home.css"
 import "./searchbar.css"
 import "./landingpage.css"
 import "./home-bootstrap.css"
+import ReactGA from "react-ga";
 // import MyBackgroundImage from "../images/bg.jpg"
 
 
 const Home = () => {
+    useEffect(()=>{
+        ReactGA.pageview(window.location.pathname);
+
+    })
+
 
     const [Event, setEvent] = useState([])
 
     const [keyword, setKeyword] = useState("");
 
     const searchSubmitHandler = (e) => {
+
+        ReactGA.event({
+            category: "search",
+            /** The type of interaction (e.g. 'play') */
+            action: "seach words",
+            /** Useful for categorizing events (e.g. 'Fall Campaign') */
+            label: keyword,
+            /** A numeric value associated with the event (e.g. 42) */
+            // value?: number;
+            /** Specifies that a hit be considered non-interactive. */
+            // nonInteraction?: boolean;
+        })
         e.preventDefault();
         if (keyword.trim()) {
             Axios.get(`https://examsopedia.herokuapp.com/search/${keyword}`).then(res => {
@@ -44,6 +62,7 @@ const Home = () => {
     console.log(Event.length)
 
     if (Event.length > 0) {
+        
 
         return (
             <div>

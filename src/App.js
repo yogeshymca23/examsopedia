@@ -4,8 +4,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Post from "./components/post.js"
 import Home from "./components/home.js"
 import Approve from "./components/approve.js"
-
+import ReactGA from "react-ga";
 import './App.css';
+const G_ID = process.env.TRACKING_ID;
+ReactGA.initialize(G_ID);
+
 
 function App() {
   return (

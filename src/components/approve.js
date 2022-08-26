@@ -1,16 +1,22 @@
 // import { useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Axios from 'axios'
 import "./home.css"
 import "./searchbar.css"
 import "./landingpage.css"
 import "./home-bootstrap.css"
+import ReactGA from "react-ga";
 // import MyBackgroundImage from "../images/bg.jpg"
 
 
 const Approve = () => {
 
     const [Event, setEvent] = useState([])
+
+    useEffect(()=>{
+        ReactGA.pageview(window.location.pathname);
+
+    })
 
 
 
@@ -66,6 +72,8 @@ const Approve = () => {
 
 
 const ChildComponent = ({ id, title, auther, batch, semester, year, branch, teacher, college, link }) => {
+
+    
 
     const Post1 = async () => {
         console.log(link);

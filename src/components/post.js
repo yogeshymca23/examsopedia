@@ -1,7 +1,8 @@
 
-import React, { useState } from 'react';
+import React, { useState ,  useEffect} from 'react';
 import Axios from 'axios'
 import "./post.css"
+import ReactGA from "react-ga";
 
 
 
@@ -17,12 +18,27 @@ function Post() {
     const [file, setfile] = useState([])
     // const [link , setlink] = useState('')
     /// image k aaega yaha ek 
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname);
+
+    })
 
 
 
 
 
     const Post1 = async () => {
+        ReactGA.event({
+            category: "post",
+            /** The type of interaction (e.g. 'play') */
+            action: "post button clicked",
+            /** Useful for categorizing events (e.g. 'Fall Campaign') */
+            label: year,
+            /** A numeric value associated with the event (e.g. 42) */
+            // value?: number;
+            /** Specifies that a hit be considered non-interactive. */
+            // nonInteraction?: boolean;
+        })
         const data = new FormData();
         data.append("file", file);
         data.append("upload_preset", 'tcy4cwvj');
@@ -35,7 +51,7 @@ function Post() {
             }
         );
         const img = await res.json();
-        
+
         const link2 = img.secure_url;  // ye link bhi aaega
 
         // console.log(img.secure_url);
@@ -43,7 +59,7 @@ function Post() {
 
         var link3 = `${link2}`;
         var en = 'fl_attachment/';
-        var position = link3.indexOf('upload') +7;
+        var position = link3.indexOf('upload') + 7;
         var link = link3.substr(0, position) + en + link3.substr(position);
         // console.log(link);
 
