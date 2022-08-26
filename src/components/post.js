@@ -3,10 +3,14 @@ import React, { useState ,  useEffect} from 'react';
 import Axios from 'axios'
 import "./post.css"
 import ReactGA from "react-ga";
+import LoadingSpinner from "./loader";
 
 
 
 function Post() {
+    const [isLoading, setIsLoading] = useState(false);
+
+
     const [title, settitle] = useState('')
     const [auther, setauther] = useState('')
     const [batch, setbatch] = useState('')
@@ -28,6 +32,9 @@ function Post() {
 
 
     const Post1 = async () => {
+        setIsLoading(true);
+
+
         ReactGA.event({
             category: "post",
             /** The type of interaction (e.g. 'play') */
@@ -68,8 +75,8 @@ function Post() {
         Axios.post('https://examsopedia.herokuapp.com/post', { title, auther, batch, semester, year, branch, teacher, college, link }, { headers: { "Content-Type": "application/json" } })
 
 
-
-        window.location.reload(false);
+        setIsLoading(false);
+        // window.location.reload(false);
         alert("Uploaded Successfully ( wait for approval from admin )");
 
 
@@ -264,6 +271,8 @@ function Post() {
                         <h4 for="myfile " style={{ color: "white", paddingBottom: "15px" }}>Upload a file</h4>
                         <input class="input placeholder2" style={{ paddingTop: "15px" }} type="file" id="myfile" onChange={(e) => setfile(e.target.files[0])} accept="image/*,application/pdf" />
                     </div>
+                    
+                    {isLoading ? <LoadingSpinner /> : null }
                     <div class="ic2">
                         <button type="text" class="submit ic2" onClick={Post1}>submit</button>
                     </div>

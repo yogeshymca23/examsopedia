@@ -1,24 +1,61 @@
 // import { useNavigate } from 'react-router-dom';
-import React, { useState  , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios'
 import "./home.css"
 import "./searchbar.css"
 import "./landingpage.css"
 import "./home-bootstrap.css"
 import ReactGA from "react-ga";
+import LoadingSpinner from "./loader";
 // import MyBackgroundImage from "../images/bg.jpg"
 
 
 const Home = () => {
-    useEffect(()=>{
+    useEffect(() => {
         ReactGA.pageview(window.location.pathname);
 
     })
 
+    const [isLoading, setIsLoading] = useState(false);
 
     const [Event, setEvent] = useState([])
 
     const [keyword, setKeyword] = useState("");
+
+    // const onKeyPressHandler = e => {
+    //     e.eventDefault();
+    //     if (e.key === 'Enter') {
+    //       // do something
+    //       console.log("hello");
+    //     }
+    // };
+
+    // function handleKeyPress(e) {
+    //     if (e.key === 'a') {
+    //       // do whatever
+    //       console.log("hello");
+    //     }
+    // };
+
+    // function onEnter(e){
+
+    //     if (e.keyCode == 13)
+    //     {
+    //         console.log("hello");
+
+    //     }
+
+    // }
+
+    // function searchKeyPress(e) {
+    //     // look for window.event in case event isn't passed in
+    //     e = e || window.event;
+    //     if (e.keyCode == 13) {
+    //         document.getElementById('btnSearch').click();
+    //         return false;
+    //     }
+    //     return true;
+    // }
 
     const searchSubmitHandler = (e) => {
 
@@ -35,15 +72,20 @@ const Home = () => {
         })
         e.preventDefault();
         if (keyword.trim()) {
+            setIsLoading(true);
+
             Axios.get(`https://examsopedia.herokuapp.com/search/${keyword}`).then(res => {
-                setEvent(res.data)
+                setEvent(res.data);
+                setIsLoading(false);
+
 
 
 
             }).catch(function (error) {
                 console.log(error);
-                
+
             });
+
             // navigate(`/search/${keyword}`);
         } else {
             Axios.get('https://examsopedia.herokuapp.com/get_post').then(res => {
@@ -59,14 +101,25 @@ const Home = () => {
         }
     };
 
-    console.log(Event.length)
+    // console.log(Event.length)
+    // if (isLoading) {
+    //     console.log("hello spinner");
+    //     <LoadingSpinner />
+    // }
+    // {isLoading ? <LoadingSpinner /> : null }
 
     if (Event.length > 0) {
-        
+        if (isLoading) {
+            console.log("hello spinner");
+            <LoadingSpinner />
+        }
+
+
 
         return (
             <div>
                 {/* <!-- header section starts  --> */}
+
 
                 <header class="header flex-wrap">
                     <a href="/" class="logo"> <i class="fas fa-book-reader"></i> ExamsOpedia </a>
@@ -97,49 +150,27 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
+                {isLoading ? <LoadingSpinner /> : null}
 
 
-
-                {/* <!-- home section starts  --> */}
-
-                {/* <section class="home" id="home">
-
-                        <div class="swiper home-slider">
-
-                            <div class="swiper-wrapper">
-
-                                <div class="swiper-slide">
-                                    <div class="box bg-image" style={{ background: `url(${MyBackgroundImage})` }}>
-                                        <div class="content">
-                                            <span>
-                                                <h1 style={{ color: "black" }}>Search Previous Year Papers</h1>
-                                            </span>
-                                            <a href="#about" class="btn">SEARCH</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </section> */}
-
-                {/* <!-- home section ends --> */}
 
 
 
                 {/* <!-- about section starts  --> */}
 
+
                 <section id="yogesh">
 
-                    <div class="search-box ">
+                    <div class="search-box d-flex">
                         <input class="search-input" type="text" placeholder="Search Previous Papers.." onChange={(e) => setKeyword(e.target.value)} />
-                        <button class="search-btn"><i class="fas fa-search" onClick={searchSubmitHandler} ></i></button>
+                        {/* <a class="btn search-button btn-xl" href="#results" onClick={searchSubmitHandler}>Search</a> */}
+                        <button class="search-btn" id="btnSearch" ><i class="fas fa-search" href="#results" onClick={searchSubmitHandler} ></i></button>
                     </div>
 
 
 
                 </section>
+
 
                 {/* <!-- about section ends --> */}
 
@@ -148,111 +179,113 @@ const Home = () => {
 
 
                 {/*  ab cards aaege */}
-
-                {
-
-
-
-                    Event.map((val, key) => {
-
-                        // image url nikalne ka trika
-
-
-                        // console.log(val.auther)
-                        // let base64String;
-                        // let imgaddress = "#";
-
-                        // if (val.img) {
-                        //     base64String = btoa(
-                        //         String.fromCharCode(...new Uint8Array(val.img.data.data))
-                        //     );
-
-                        //     imgaddress = `data:image/png;base64,${base64String}`;
-                        // }
+                <section id="results" >
+                    {
 
 
 
-                        // console.log(val.link);
+                        Event.map((val, key) => {
+
+                            // image url nikalne ka trika
 
 
-                        return (
-                            <div>
+                            // console.log(val.auther)
+                            // let base64String;
+                            // let imgaddress = "#";
 
-                                <div class="courses-container">
-                                    <div class="course row">
-                                        <div class="col-12 col-md-3 py-4 d-flex flex-column align-items-center justify-content-center course-preview">
-                                            <h6>{val.college}</h6>
-                                            <h2>{val.branch}</h2>
-                                            <a >Post by :- {val.auther} ({val.batch})</a>
-                                        </div>
+                            // if (val.img) {
+                            //     base64String = btoa(
+                            //         String.fromCharCode(...new Uint8Array(val.img.data.data))
+                            //     );
 
-                                        <div class="col-12 col-md-9 course-info px-5">
-                                            <div class="row pt-3">
-                                                <div class="col-6 ">
-                                                    <h6>{val.year} Year</h6>
-                                                </div>
-                                                <div class="col-6 col-md-6  progress-container">
-                                                    <div class="progress"></div>
-                                                    <span class="progress-text">
-                                                        {val.rating}/5 Ratings
-                                                    </span>
-                                                </div>
+                            //     imgaddress = `data:image/png;base64,${base64String}`;
+                            // }
+
+
+
+                            // console.log(val.link);
+
+
+                            return (
+
+                                <div>
+
+                                    <div class="courses-container">
+
+                                        <div class="course row">
+                                            <div class="col-12 col-md-3 py-4 d-flex flex-column align-items-center justify-content-center course-preview">
+                                                <h6>{val.college}</h6>
+                                                <h2>{val.branch}</h2>
+                                                <a >Post by :- {val.auther} ({val.batch})</a>
                                             </div>
 
-                                            {/* <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --> */}
-                                            <div class="row offset-5">
-                                                <div class="col-12 col-md-12 py-2 ">
-                                                    <h2 id="title">{val.title} </h2>
+                                            <div class="col-12 col-md-9 course-info px-5">
+                                                <div class="row pt-3">
+                                                    <div class="col-6 ">
+                                                        <h6>{val.year} Year</h6>
+                                                    </div>
+                                                    <div class="col-6 col-md-6  progress-container">
+                                                        <div class="progress"></div>
+                                                        <span class="progress-text">
+                                                            {val.rating}/5 Ratings
+                                                        </span>
+                                                    </div>
                                                 </div>
 
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 align-items-start">
-                                                    <h3 id="title">By :- {val.teacher} </h3>
-                                                </div>
-
-                                            </div>
-
-                                            {/* <!-- Columns are always 50% wide, on mobile and desktop --> */}
-                                            <div class="row">
-                                                <div class=" col py-3">
-                                                    <button class="btn-card" ><a style={{color : "white"}} href={val.link}>Download Paper</a></button>
-                                                    {/* ab popup aaega  */}
-                                                    <div class="modal fade"
-                                                        id="exampleModal"
-                                                        tabindex="-1"
-                                                        role="dialog"
-                                                        aria-labelledby="exampleModalLabel"
-                                                        aria-hidden="true">
-
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-
-                                                                {/* <!-- Add image inside the body of modal --> */}
-                                                                <div class="modal-body">
-                                                                    <img id="image" src={val.link} width="100%"
-                                                                        alt="No Data Found" />
-                                                                </div>
-
-                                                                <div class="modal-footer">
-                                                                    <button type="button"
-                                                                        class="btn-card"
-                                                                        data-dismiss="modal">
-                                                                        Close
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                {/* <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --> */}
+                                                <div class="row offset-5">
+                                                    <div class="col-12 col-md-12 py-2 ">
+                                                        <h2 id="title">{val.title} </h2>
                                                     </div>
 
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-12 align-items-start">
+                                                        <h3 id="title">By :- {val.teacher} </h3>
+                                                    </div>
+
+                                                </div>
+
+                                                {/* <!-- Columns are always 50% wide, on mobile and desktop --> */}
+                                                <div class="row">
+                                                    <div class=" col py-3">
+                                                        <button class="btn-card" ><a style={{ color: "white" }} href={val.link}>Download Paper</a></button>
+                                                        {/* ab popup aaega  */}
+                                                        <div class="modal fade"
+                                                            id="exampleModal"
+                                                            tabindex="-1"
+                                                            role="dialog"
+                                                            aria-labelledby="exampleModalLabel"
+                                                            aria-hidden="true">
+
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+
+                                                                    {/* <!-- Add image inside the body of modal --> */}
+                                                                    <div class="modal-body">
+                                                                        <img id="image" src={val.link} width="100%"
+                                                                            alt="No Data Found" />
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn-card"
+                                                                            data-dismiss="modal">
+                                                                            Close
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
                                             </div>
 
-                                        </div>
 
 
-
-                                        {/* <div class="row course-info">
+                                            {/* <div class="row course-info">
                                                 <div class="col progress-container">
                                                     <div class="progress"></div>
                                                     <span class="progress-text">
@@ -269,24 +302,29 @@ const Home = () => {
 
                                                 
                                             </div> */}
+                                        </div>
                                     </div>
-                                </div>
 
-                                {/* <button class="floating-btn">
+                                    {/* <button class="floating-btn">
                                         <a href='/post' class="floating-btn" >Upload New Paper</a>
                                     </button> */}
 
 
 
-                            </div>
-                        )
-                    })
-                }
+                                </div>
+                            )
+                        })
+                    }
+                </section>
             </div >
         );
 
     }
     else {
+        if (isLoading) {
+            console.log("hello spinner");
+            <LoadingSpinner />
+        }
         return (
             <div>
                 {/* ////////////////////////////////////////////////////////////////////////////////////// */}
