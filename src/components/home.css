@@ -197,6 +197,10 @@ body {
 	text-decoration-color: #2C3333;
 }
 
+#btnSearch{
+	border-radius:6px;
+}
+
 @media screen and (max-width: 580px) {
 
 	.social-panel-container.visible {

@@ -150,7 +150,7 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
-                {isLoading ? <LoadingSpinner /> : null}
+                
 
 
 
@@ -164,12 +164,13 @@ const Home = () => {
                     <div class="search-box d-flex">
                         <input class="search-input" type="text" placeholder="Search Previous Papers.." onChange={(e) => setKeyword(e.target.value)} />
                         {/* <a class="btn search-button btn-xl" href="#results" onClick={searchSubmitHandler}>Search</a> */}
-                        <button class="search-btn" id="btnSearch" ><i class="fas fa-search" href="#results" onClick={searchSubmitHandler} ></i></button>
+                        <button class="btn  btn-xl mx-3  my-auto" id="btnSearch" onClick={searchSubmitHandler}>Button</button>
                     </div>
 
 
 
                 </section>
+                {isLoading ? <LoadingSpinner /> : null}
 
 
                 {/* <!-- about section ends --> */}
@@ -382,13 +383,15 @@ const Home = () => {
 
                 <section id="about">
 
-                    <div class="search-box">
+                    <div class="search-box d-flex">
                         <input class="search-input" type="text" placeholder="Search Previous Papers.." onChange={(e) => setKeyword(e.target.value)} />
-                        <button class="search-btn"><i class="fas fa-search" onClick={searchSubmitHandler}></i></button>
+                        <button class="btn mx-3 btn-xl my-auto" id="btnSearch" onClick={searchSubmitHandler}>Search</button>
                     </div>
 
 
                 </section>
+                {isLoading ? <LoadingSpinner /> : null}
+
 
                 {/* <!-- about section ends --> */}
 
