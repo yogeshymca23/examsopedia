@@ -161,10 +161,10 @@ const Home = () => {
 
                 <section id="yogesh">
 
-                    <div class="search-box d-flex">
+                    <div class="search-box d-md-flex">
                         <input class="search-input" type="text" placeholder="Search Previous Papers.." onChange={(e) => setKeyword(e.target.value)} />
                         {/* <a class="btn search-button btn-xl" href="#results" onClick={searchSubmitHandler}>Search</a> */}
-                        <button class="btn  btn-xl mx-3  my-auto" id="btnSearch" onClick={searchSubmitHandler}>Button</button>
+                        <button class="btn  btn-xl mx-3  my-auto" id="btnSearch" onClick={searchSubmitHandler}>Search</button>
                     </div>
 
 
@@ -383,7 +383,7 @@ const Home = () => {
 
                 <section id="about">
 
-                    <div class="search-box d-flex">
+                    <div class="search-box d-md-flex">
                         <input class="search-input" type="text" placeholder="Search Previous Papers.." onChange={(e) => setKeyword(e.target.value)} />
                         <button class="btn mx-3 btn-xl my-auto" id="btnSearch" onClick={searchSubmitHandler}>Search</button>
                     </div>
