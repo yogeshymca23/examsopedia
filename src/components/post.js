@@ -32,6 +32,54 @@ function Post() {
 
 
     const Post1 = async () => {
+        
+        if(auther==='')
+        {
+            alert("Enter Your Name");
+            return;
+        }
+        else if(title==='')
+        {
+            alert("Enter Subject Name");
+            return;
+        }
+        else if(teacher==='')
+        {
+            alert("Enter Teacher Name ( NA if not available) ");
+            return;
+        }
+       
+        else if(semester==='')
+        {
+            alert("Select semester");
+            return;
+        }
+        else if(year==='')
+        {
+            alert("Select year");
+            return;
+        }
+        else if(branch==='')
+        {
+            alert("Select Branch");
+            return;
+        }
+        
+        else if(college==='')
+        {
+            alert("Select college");
+            return;
+        }
+        else if(batch==='')
+        {
+            alert("Select Batch");
+            return;
+        }
+        else if(file==='')
+        {
+            alert("Submit Any File");
+            return;
+        }
         setIsLoading(true);
 
 
@@ -134,7 +182,7 @@ function Post() {
 
         <div>
             <header class="header">
-                <a href="/" class="logo"> <i class="fas fa-book-reader"></i> ExamOpedia </a>
+                <a href="/" class="logo"> <i class="fas fa-book-reader"></i> ExamsOpedia </a>
 
                 <nav class="navbar">
                     <div id="nav-close" class="fas fa-times"></div>
@@ -158,7 +206,7 @@ function Post() {
                     <div class="subtitle">Upload Your PYQ!</div>
 
                     <div class="input-container ic2">
-                        <input id="lastname" class="input" type="text" placeholder=" " onChange={(e) => setauther(e.target.value)} />
+                        <input id="lastname" class="input" type="text" placeholder=" " onChange={(e) => setauther(e.target.value)} required />
                         <div class="cut"></div>
                         <h4 for="lastname" class="placeholder">YOUR NAME</h4>
                     </div>
@@ -223,7 +271,7 @@ function Post() {
                             <option value='EIC'>EIC</option>
                             <option value='MECHANICAL'>MECHANICAL</option>
                             <option value='CIVIL'>CIVIL</option>
-                            <option value='CIVIL'>ELECTRICAL</option>
+                            <option value='ELECTRICAL'>ELECTRICAL</option>
 
                         </select>
                         <div class="cut"></div>
@@ -275,7 +323,8 @@ function Post() {
                     
                     {isLoading ? <LoadingSpinner /> : null }
                     <div class="ic2">
-                        <button type="text" class="submit ic2" onClick={Post1}>submit</button>
+                        
+                        <button type="text" class="submit ic2"  onClick={Post1}>submit</button>
                     </div>
 
                 </div>
