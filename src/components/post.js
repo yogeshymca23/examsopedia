@@ -223,6 +223,7 @@ function Post() {
                             <option value='EIC'>EIC</option>
                             <option value='MECHANICAL'>MECHANICAL</option>
                             <option value='CIVIL'>CIVIL</option>
+                            <option value='CIVIL'>CIVIL</option>
 
                         </select>
                         <div class="cut"></div>
